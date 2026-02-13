@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/labs", label: "Labs" },
+  { href: "/resources", label: "Resources" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -44,7 +45,7 @@ export function Navbar() {
         animate={{
           y: 0,
           opacity: 1,
-          maxWidth: isScrolled ? 2000 : 480,
+          maxWidth: isScrolled ? 2000 : 560,
           borderRadius: isScrolled ? 0 : 9999,
           marginTop: isScrolled ? 0 : 12,
           paddingLeft: isScrolled ? 24 : 32,

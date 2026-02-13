@@ -528,6 +528,12 @@ export default function LeanVentures() {
               Labs
             </a>
             <a
+              href="/resources"
+              className="transition-colors hover:text-foreground"
+            >
+              Resources
+            </a>
+            <a
               href="#products"
               className="transition-colors hover:text-foreground"
             >
