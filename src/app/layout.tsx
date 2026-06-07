@@ -26,6 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script defer data-domain="createworkflow.io" src="https://analytics.createworkflow.io/js/script.file-downloads.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+        <script dangerouslySetInnerHTML={{ __html: "window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }" }} />
+      </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
