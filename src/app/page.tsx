@@ -79,7 +79,7 @@ export default function Home() {
 
   const blobY = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const blobScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.3, 0]);
+  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.4, 0]);
 
   return (
     <div className="min-h-screen font-sans">
@@ -99,6 +99,14 @@ export default function Home() {
               "radial-gradient(ellipse, var(--gradient-start), var(--gradient-end), transparent 70%)",
           }}
           className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[480px] w-[640px] -translate-x-1/2 rounded-full blur-[100px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 right-1/4 -z-10 h-[380px] w-[480px] rounded-full opacity-[0.18] blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(ellipse, #d1fae5, #6ee7b7, transparent 70%)",
+          }}
         />
 
         <motion.div
@@ -329,11 +337,12 @@ export default function Home() {
       </section>
 
       {/* ─── WHY LEANWORKFLOWS ─── */}
-      <section className="py-24 sm:py-32">
+      <section className="bg-foreground py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="Why Create Workflow"
             title="Hire less. Automate more. Grow faster."
+            inverted
           />
           <motion.div
             className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
@@ -369,11 +378,11 @@ export default function Home() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-100 text-foreground">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white">
                   {item.icon}
                 </div>
-                <h3 className="text-[15px] font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <h3 className="text-[15px] font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">
                   {item.desc}
                 </p>
               </motion.div>
