@@ -79,7 +79,7 @@ export default function Home() {
 
   const blobY = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const blobScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.4, 0]);
+  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.18, 0]);
 
   return (
     <div className="min-h-screen font-sans">
@@ -88,6 +88,7 @@ export default function Home() {
         ref={heroRef}
         className="relative isolate flex min-h-screen items-center justify-center overflow-hidden"
       >
+        {/* Primary gradient orb — scroll-parallax */}
         <motion.div
           aria-hidden
           suppressHydrationWarning
@@ -96,16 +97,27 @@ export default function Home() {
             scale: blobScale,
             opacity: blobOpacity,
             background:
-              "radial-gradient(ellipse, var(--gradient-start), var(--gradient-end), transparent 70%)",
+              "radial-gradient(ellipse, #a855f7, #6366f1, #ec4899, transparent 70%)",
           }}
-          className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[480px] w-[640px] -translate-x-1/2 rounded-full blur-[100px]"
+          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[560px] w-[780px] -translate-x-1/2 rounded-full blur-[120px]"
         />
+        {/* Secondary ambient orb — bottom right */}
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-0 right-1/4 -z-10 h-[380px] w-[480px] rounded-full opacity-[0.18] blur-[110px]"
+          className="pointer-events-none absolute -bottom-20 right-1/4 -z-10 h-[380px] w-[480px] rounded-full opacity-[0.12] blur-[110px]"
           style={{
             background:
-              "radial-gradient(ellipse, #d1fae5, #6ee7b7, transparent 70%)",
+              "radial-gradient(ellipse, #06b6d4, #6366f1, transparent 70%)",
+          }}
+        />
+        {/* Dot grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+            backgroundSize: "32px 32px",
           }}
         />
 
@@ -142,8 +154,8 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            We build the AI agents, automations, and connected systems that
-            handle your business operations — so you and your team focus on work only
+            We build the AI agents, automations, and connected systems that reduce manual work
+            and power your business operations — so you and your team focus on high impact work only
             humans can do.
           </motion.p>
 
