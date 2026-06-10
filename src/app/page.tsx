@@ -20,6 +20,9 @@ import {
   UsersIcon,
   ClockIcon,
   ShieldIcon,
+  BotIcon,
+  SparklesIcon,
+  ScanIcon,
 } from "@/components/icons";
 import { ServiceCard } from "@/components/ServiceCard";
 import { StepCard } from "@/components/StepCard";
@@ -239,34 +242,40 @@ export default function Home() {
             variants={staggerContainer}
           >
             <ServiceCard
-              icon={<N8nIcon />}
-              title="n8n Workflow Design"
-              description="Custom n8n workflows that connect your tools, automate repetitive tasks, and keep your data flowing — built to scale with you."
+              icon={<BotIcon />}
+              title="AI Automation"
+              description="Autonomous agents and intelligent workflows that handle lead qualification, support tickets, document processing, and operations — 24/7."
+              href="/services/ai-automation"
             />
             <ServiceCard
               icon={<AirtableIcon />}
               title="Airtable Systems"
               description="Relational databases, dashboards, and interfaces on Airtable — structured so your entire team can operate without spreadsheets."
+              href="/services/airtable"
+            />
+            <ServiceCard
+              icon={<ShieldIcon />}
+              title="Self Hosting Infrastructure"
+              description="We deploy and manage your self-hosted AI stack — open-source LLMs, private databases, and automation pipelines on your own servers."
+              href="/services/self-hosting"
+            />
+            <ServiceCard
+              icon={<SparklesIcon />}
+              title="One Hour AI Consultation"
+              description="Book one hour with an AI expert. Walk away with a clear strategy, the right tool stack, and a written action plan for your business."
+              href="/services/ai-consultation"
+            />
+            <ServiceCard
+              icon={<ScanIcon />}
+              title="Build Your AI OS"
+              description="A complete AI operating system for your business — connected agents, knowledge bases, and automations that run your operations on autopilot."
+              href="/services/ai-os"
             />
             <ServiceCard
               icon={<IntegrationIcon />}
-              title="Custom Integrations"
-              description="API integrations between your CRM, payments, email, and ops tools. We wire everything together so nothing falls through the cracks."
-            />
-            <ServiceCard
-              icon={<StrategyIcon />}
-              title="Automation Strategy"
-              description="Not sure where to start? We audit your workflows, identify bottlenecks, and build a prioritized automation roadmap."
-            />
-            <ServiceCard
-              icon={<MigrationIcon />}
-              title="Data Migration"
-              description="Moving from spreadsheets to structured systems? We handle the migration cleanly — no data loss, no downtime."
-            />
-            <ServiceCard
-              icon={<SupportIcon />}
-              title="Ongoing Support"
-              description="Retainer plans for monitoring, updates, and new workflow requests as your business evolves. We grow with you."
+              title="Customized Solutions"
+              description="Need something bespoke? We design and build custom workflows, integrations, and AI systems tailored exactly to your business."
+              href="/labs"
             />
           </motion.div>
         </div>
