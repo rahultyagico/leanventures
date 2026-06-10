@@ -731,12 +731,12 @@ export default function AirtableServices() {
             className="mt-10"
           >
             <motion.a
-              href="mailto:hello@createworkflow.com"
+              href="mailto:team@createworkflow.io"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center gap-2 rounded-full bg-background px-8 text-sm font-medium text-foreground transition-opacity hover:opacity-80"
             >
-              hello@createworkflow.com
+              team@createworkflow.io
               <ArrowRightIcon />
             </motion.a>
           </motion.div>

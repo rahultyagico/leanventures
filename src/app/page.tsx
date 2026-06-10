@@ -20,45 +20,54 @@ import {
   UsersIcon,
   ClockIcon,
   ShieldIcon,
+  BotIcon,
+  SparklesIcon,
+  ScanIcon,
+  ArrowRightIcon,
+  CheckIcon,
+  XIcon,
 } from "@/components/icons";
 import { ServiceCard } from "@/components/ServiceCard";
 import { StepCard } from "@/components/StepCard";
 import { ReviewCard } from "@/components/ReviewCard";
 import { SectionHeader } from "@/components/SectionHeader";
-import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
 
 const TESTIMONIALS = [
   {
     quote:
       "They don't just know how to build things — they understand why certain approaches are better than others. Every recommendation came with reasoning. They steered me toward proven structures and scalable automation patterns, saving me significant time, rework, and resources. The speed at which I can now design, iterate, and improve has increased dramatically.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Founder, B2B SaaS",
   },
   {
     quote:
       "Create Workflow doesn't operate like a team that simply completes tasks for you. They coach. They teach. They challenge your assumptions. When I proposed certain design ideas, they didn't automatically agree — they asked questions, pushed me to clarify requirements, and think in systems rather than isolated features. That shift in mindset has been one of the most valuable outcomes of working together.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "CEO, Digital Agency",
   },
   {
     quote:
       "Rather than patching issues, they look at root causes. Rather than adding complexity, they search for simplification. They consistently asked how to design something robust, clean, and future-proof. That perspective helped me move from building tactical solutions to building strategic systems.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Founder, E-commerce Brand",
   },
   {
     quote:
       "Create Workflow is more than a talented tech team. They have very good business and common sense and are a terrific sounding board on problem solving and offering creative solutions. Very responsive and reliable. I would recommend them highly.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Operator, Professional Services",
   },
   {
     quote:
       "My problem persisted for 6 months until Create Workflow came and delivered the project in 3 days. They went an extra mile to help me host and run it, which wasn't in their scope. Create Workflow is top tier talent and one of the most professional teams I've seen in tech. Extremely reliable.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Founder, Tech Startup",
   },
+];
+
+const BEFORE_AFTER = [
+  { before: "Researching leads manually every morning", after: "AI agent runs prospect research overnight, automatically" },
+  { before: "Support inbox piling up with repetitive questions", after: "80% of tickets deflected before they reach your team" },
+  { before: "Copy-pasting data between tools all day", after: "Everything syncs in real time — zero manual transfers" },
+  { before: "Building weekly reports from scratch", after: "Reports generate and deliver themselves on a schedule" },
+  { before: "Onboarding new clients step by step, manually", after: "Onboarding agent runs the full checklist automatically" },
+  { before: "Hours lost to admin your team shouldn't be doing", after: "Your team focuses on work only humans can do" },
 ];
 
 export default function Home() {
@@ -70,7 +79,7 @@ export default function Home() {
 
   const blobY = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const blobScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.3, 0]);
+  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.4, 0]);
 
   return (
     <div className="min-h-screen font-sans">
@@ -90,6 +99,14 @@ export default function Home() {
               "radial-gradient(ellipse, var(--gradient-start), var(--gradient-end), transparent 70%)",
           }}
           className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[480px] w-[640px] -translate-x-1/2 rounded-full blur-[100px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 right-1/4 -z-10 h-[380px] w-[480px] rounded-full opacity-[0.18] blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(ellipse, #d1fae5, #6ee7b7, transparent 70%)",
+          }}
         />
 
         <motion.div
@@ -115,9 +132,9 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
           >
-            You focus on the vision.
+            The operating system
             <br />
-            <span className="text-muted">We build the systems.</span>
+            <span className="text-muted">your business was missing.</span>
           </motion.h1>
 
           <motion.p
@@ -125,9 +142,9 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            Technical services for non-technical founders. We design n8n
-            automations, Airtable backends, and custom integrations&mdash;so
-            your startup runs on autopilot.
+            We build the AI agents, automations, and connected systems that
+            handle your business operations — so you and your team focus on work only
+            humans can do.
           </motion.p>
 
           <motion.div
@@ -139,20 +156,45 @@ export default function Home() {
               href="#contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
+              className="inline-flex h-12 items-center gap-2 justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
             >
-              Get a free consultation
+              Book a free workflow audit
+              <ArrowRightIcon />
             </motion.a>
             <motion.a
-              href="#services"
+              href="#before-after"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-card px-8 text-sm font-medium text-foreground transition-colors hover:bg-border/40"
             >
-              See what we do
+              See what changes
             </motion.a>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* ─── REVIEWS ─── */}
+      <section
+        id="reviews"
+        className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32"
+      >
+        <div className="mx-auto max-w-5xl px-6">
+          <SectionHeader
+            label="Client reviews"
+            title="Trusted by founders who ship"
+          />
+          <motion.div
+            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {TESTIMONIALS.map((t, i) => (
+              <ReviewCard key={i} quote={t.quote} role={t.role} />
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* ─── TRUST BAR ─── */}
@@ -164,15 +206,16 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="border-y border-border/60 bg-card"
       >
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-6 py-8 text-muted">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6 py-8 text-muted">
           <span className="text-xs font-medium uppercase tracking-widest">
             Built with
           </span>
           {[
+            { icon: <BotIcon />, label: "Claude / GPT-4o" },
             { icon: <N8nIcon />, label: "n8n" },
             { icon: <AirtableIcon />, label: "Airtable" },
+            { icon: <ZapIcon />, label: "Zapier / Make" },
             { icon: <WebhookIcon />, label: "REST APIs" },
-            { icon: <ZapIcon />, label: "Zapier" },
           ].map((item) => (
             <motion.div
               key={item.label}
@@ -188,32 +231,47 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* ─── STATS ─── */}
-      <section className="flex min-h-screen items-center justify-center py-24 sm:py-32">
+      {/* ─── BEFORE / AFTER ─── */}
+      <section id="before-after" className="flex min-h-[80vh] items-center py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6">
+          <SectionHeader
+            label="What changes"
+            title="Your team should be closing deals, not copying data."
+            description="We automate the work slowing you down. Here's what that looks like in practice."
+          />
+
+          {/* Column headers */}
+          <div className="mt-14 grid grid-cols-2 gap-4 px-6 sm:px-8 mb-2">
+            <span className="text-xs font-semibold uppercase tracking-widest text-muted/50">Before</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600">After</span>
+          </div>
+
           <motion.div
-            className="grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-12"
+            className="flex flex-col divide-y divide-border/40 rounded-2xl border border-card-border bg-card overflow-hidden"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
           >
-            {[
-              { number: "500+", label: "Workflows Built" },
-              { number: "50+", label: "Founders Helped" },
-              { number: "12", label: "Countries Served" },
-              { number: "98%", label: "Client Satisfaction" },
-            ].map((stat) => (
+            {BEFORE_AFTER.map((item, i) => (
               <motion.div
-                key={stat.label}
+                key={i}
                 variants={fadeUp}
-                transition={{ duration: 0.5 }}
-                className="text-center"
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-2 gap-4 px-6 py-5 sm:px-8 sm:py-6 hover:bg-neutral-50/50 transition-colors"
               >
-                <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
-                  {stat.number}
-                </p>
-                <p className="mt-2 text-sm text-muted">{stat.label}</p>
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-shrink-0 text-red-400">
+                    <XIcon />
+                  </span>
+                  <span className="text-sm text-muted leading-relaxed">{item.before}</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-shrink-0 text-emerald-500">
+                    <CheckIcon />
+                  </span>
+                  <span className="text-sm font-medium leading-relaxed">{item.after}</span>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -239,45 +297,52 @@ export default function Home() {
             variants={staggerContainer}
           >
             <ServiceCard
-              icon={<N8nIcon />}
-              title="n8n Workflow Design"
-              description="Custom n8n workflows that connect your tools, automate repetitive tasks, and keep your data flowing — built to scale with you."
+              icon={<BotIcon />}
+              title="AI Automation"
+              description="Autonomous agents and intelligent workflows that handle lead qualification, support tickets, document processing, and operations — 24/7."
+              href="/services/ai-automation"
             />
             <ServiceCard
               icon={<AirtableIcon />}
               title="Airtable Systems"
               description="Relational databases, dashboards, and interfaces on Airtable — structured so your entire team can operate without spreadsheets."
+              href="/services/airtable"
+            />
+            <ServiceCard
+              icon={<ShieldIcon />}
+              title="Self Hosting Infrastructure"
+              description="We deploy and manage your self-hosted AI stack — open-source LLMs, private databases, and automation pipelines on your own servers."
+              href="/services/self-hosting"
+            />
+            <ServiceCard
+              icon={<SparklesIcon />}
+              title="One Hour AI Consultation"
+              description="Book one hour with an AI expert. Walk away with a clear strategy, the right tool stack, and a written action plan for your business."
+              href="/services/ai-consultation"
+            />
+            <ServiceCard
+              icon={<ScanIcon />}
+              title="Build Your AI OS"
+              description="A complete AI operating system for your business — connected agents, knowledge bases, and automations that run your operations on autopilot."
+              href="/services/ai-os"
             />
             <ServiceCard
               icon={<IntegrationIcon />}
-              title="Custom Integrations"
-              description="API integrations between your CRM, payments, email, and ops tools. We wire everything together so nothing falls through the cracks."
-            />
-            <ServiceCard
-              icon={<StrategyIcon />}
-              title="Automation Strategy"
-              description="Not sure where to start? We audit your workflows, identify bottlenecks, and build a prioritized automation roadmap."
-            />
-            <ServiceCard
-              icon={<MigrationIcon />}
-              title="Data Migration"
-              description="Moving from spreadsheets to structured systems? We handle the migration cleanly — no data loss, no downtime."
-            />
-            <ServiceCard
-              icon={<SupportIcon />}
-              title="Ongoing Support"
-              description="Retainer plans for monitoring, updates, and new workflow requests as your business evolves. We grow with you."
+              title="Customized Solutions"
+              description="Need something bespoke? We design and build custom workflows, integrations, and AI systems tailored exactly to your business."
+              href="/labs"
             />
           </motion.div>
         </div>
       </section>
 
       {/* ─── WHY LEANWORKFLOWS ─── */}
-      <section className="flex min-h-screen items-center py-24 sm:py-32">
+      <section className="bg-foreground py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="Why Create Workflow"
-            title="Built for founders, not enterprises"
+            title="Hire less. Automate more. Grow faster."
+            inverted
           />
           <motion.div
             className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
@@ -313,11 +378,11 @@ export default function Home() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-100 text-foreground">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white">
                   {item.icon}
                 </div>
-                <h3 className="text-[15px] font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <h3 className="text-[15px] font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">
                   {item.desc}
                 </p>
               </motion.div>
@@ -327,7 +392,7 @@ export default function Home() {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32">
+      <section className="border-y border-border/60 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="How it works"
@@ -355,98 +420,6 @@ export default function Home() {
               title="Launch & support"
               description="We deploy everything, train your team, and stick around to make sure it all runs smoothly."
             />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── PRICING ─── */}
-      <section
-        id="pricing"
-        className="flex min-h-screen items-center py-24 sm:py-32"
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <SectionHeader
-            label="Pricing"
-            title="Simple, transparent pricing"
-            description="No hourly billing surprises. Choose the package that fits your stage."
-          />
-          <motion.div
-            className="mt-14 grid gap-6 sm:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
-            <PricingCard
-              tier="Starter"
-              price="$1,500"
-              period="project"
-              description="Perfect for a single automation or integration."
-              features={[
-                "1 workflow or integration",
-                "Airtable or n8n setup",
-                "2 rounds of revisions",
-                "Documentation included",
-                "1 week delivery",
-              ]}
-              ctaText="Get started"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Growth"
-              price="$3,500"
-              period="project"
-              description="For founders ready to systematize operations."
-              features={[
-                "Up to 3 connected workflows",
-                "Airtable backend + automations",
-                "API integrations included",
-                "Priority Slack support",
-                "2-3 week delivery",
-              ]}
-              highlighted
-              ctaText="Most popular"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Scale"
-              price="Custom"
-              period="month"
-              description="Ongoing automation partner for your team."
-              features={[
-                "Unlimited workflow requests",
-                "Dedicated automation engineer",
-                "Monthly strategy calls",
-                "Priority support & SLA",
-                "Cancel anytime",
-              ]}
-              ctaText="Book a call"
-              ctaHref="#contact"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── REVIEWS ─── */}
-      <section
-        id="reviews"
-        className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32"
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <SectionHeader
-            label="Client reviews"
-            title="Trusted by founders who ship"
-          />
-          <motion.div
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-          >
-            {TESTIMONIALS.map((t, i) => (
-              <ReviewCard key={i} quote={t.quote} name={t.name} role={t.role} />
-            ))}
           </motion.div>
         </div>
       </section>
@@ -507,30 +480,40 @@ export default function Home() {
           viewport={{ once: true, amount: 0.4 }}
           variants={heroStagger}
         >
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-700 px-4 py-1.5 text-xs font-medium text-neutral-400"
+          >
+            <SparklesIcon />
+            Free — no commitment
+          </motion.div>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Ready to automate?
+            What if your business ran while you slept?
           </motion.h2>
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-4 max-w-md text-base leading-relaxed text-neutral-400"
           >
-            Book a free 30-minute call. We&rsquo;ll scope your project, give
-            you an honest estimate, and only move forward if it&rsquo;s a fit.
+            We&rsquo;ll map your 3 highest-impact automation opportunities and
+            give you a clear action plan to act on immediately —
+            before you spend a cent.
           </motion.p>
           <motion.a
-            href="mailto:hello@createworkflow.com"
+            href="mailto:team@createworkflow.io"
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-medium text-foreground shadow-sm transition-opacity hover:opacity-90"
+            className="mt-10 inline-flex h-12 items-center gap-2 justify-center rounded-full bg-white px-8 text-sm font-medium text-foreground shadow-sm transition-opacity hover:opacity-90"
           >
-            hello@createworkflow.com
+            team@createworkflow.io
+            <ArrowRightIcon />
           </motion.a>
         </motion.div>
       </section>
@@ -556,12 +539,6 @@ export default function Home() {
               className="transition-colors hover:text-foreground"
             >
               Services
-            </a>
-            <a
-              href="#pricing"
-              className="transition-colors hover:text-foreground"
-            >
-              Pricing
             </a>
             <a
               href="#reviews"

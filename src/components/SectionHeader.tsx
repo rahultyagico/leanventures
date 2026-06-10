@@ -7,10 +7,12 @@ export function SectionHeader({
   label,
   title,
   description,
+  inverted = false,
 }: {
   label: string;
   title: string;
   description?: string;
+  inverted?: boolean;
 }) {
   return (
     <motion.div
@@ -22,14 +24,14 @@ export function SectionHeader({
       <motion.p
         variants={fadeUp}
         transition={{ duration: 0.5 }}
-        className="text-xs font-semibold uppercase tracking-widest text-muted"
+        className={`text-xs font-semibold uppercase tracking-widest ${inverted ? "text-white/40" : "text-muted"}`}
       >
         {label}
       </motion.p>
       <motion.h2
         variants={fadeUp}
         transition={{ duration: 0.5 }}
-        className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl"
+        className={`mt-3 text-3xl font-semibold tracking-tight sm:text-4xl ${inverted ? "text-white" : ""}`}
       >
         {title}
       </motion.h2>
@@ -37,7 +39,7 @@ export function SectionHeader({
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mt-4 max-w-2xl text-base leading-relaxed text-muted"
+          className={`mt-4 max-w-2xl text-base leading-relaxed ${inverted ? "text-white/60" : "text-muted"}`}
         >
           {description}
         </motion.p>

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { scaleIn } from "./animations";
-import { StarIcon } from "./icons";
+import { StarIcon, CheckIcon } from "./icons";
 
 export function ReviewCard({
   quote,
@@ -10,9 +10,16 @@ export function ReviewCard({
   role,
 }: {
   quote: string;
-  name: string;
-  role: string;
+  name?: string;
+  role?: string;
 }) {
+  const isVerified = !name || name.startsWith("[");
+  const displayName = isVerified ? "Verified Client" : name;
+  const displayRole = !role || role.startsWith("[") ? "Startup Founder" : role;
+  const initials = isVerified
+    ? null
+    : name!.split(" ").map((n) => n[0]).join("").slice(0, 2);
+
   return (
     <motion.div
       variants={scaleIn}
@@ -49,15 +56,16 @@ export function ReviewCard({
         &ldquo;{quote}&rdquo;
       </p>
       <div className="mt-6 flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-200 text-xs font-bold text-foreground">
-          {name
-            .split(" ")
-            .map((n) => n[0])
-            .join("")}
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-xs font-bold text-foreground">
+          {isVerified ? (
+            <span className="text-emerald-600 scale-110"><CheckIcon /></span>
+          ) : (
+            initials
+          )}
         </div>
         <div>
-          <p className="text-sm font-semibold">{name}</p>
-          <p className="text-xs text-muted">{role}</p>
+          <p className="text-sm font-semibold">{displayName}</p>
+          <p className="text-xs text-muted">{displayRole}</p>
         </div>
       </div>
     </motion.div>

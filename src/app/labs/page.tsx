@@ -554,14 +554,14 @@ export default function Labs() {
             solutions, and give you an honest quote&mdash;no obligation.
           </motion.p>
           <motion.a
-            href="mailto:labs@createworkflow.com"
+            href="mailto:team@createworkflow.io"
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-medium text-foreground shadow-sm transition-opacity hover:opacity-90"
           >
-            labs@createworkflow.com
+            team@createworkflow.io
           </motion.a>
         </motion.div>
       </section>

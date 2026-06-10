@@ -25,6 +25,9 @@ const NAV_LINKS: NavLink[] = [
     children: [
       { href: "/services/ai-automation", label: "AI Automation" },
       { href: "/services/airtable", label: "Airtable Services" },
+      { href: "/services/self-hosting", label: "Self Hosting Infrastructure" },
+      { href: "/services/ai-consultation", label: "One Hour AI Consultation" },
+      { href: "/services/ai-os", label: "Build Your AI OS" },
       { href: "/labs", label: "Customized Solutions" },
     ],
   },
@@ -105,7 +108,7 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -4, scale: 0.97 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
-                className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-52 rounded-xl border border-border/60 bg-background/90 backdrop-blur-md p-2 shadow-lg"
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-xl border border-border/60 bg-background/90 backdrop-blur-md p-2 shadow-lg"
               >
                 {link.children.map((child) => (
                   <Link
