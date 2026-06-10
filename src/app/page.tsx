@@ -23,6 +23,8 @@ import {
   BotIcon,
   SparklesIcon,
   ScanIcon,
+  ArrowRightIcon,
+  CheckIcon,
 } from "@/components/icons";
 import { ServiceCard } from "@/components/ServiceCard";
 import { StepCard } from "@/components/StepCard";
@@ -35,33 +37,37 @@ const TESTIMONIALS = [
   {
     quote:
       "They don't just know how to build things — they understand why certain approaches are better than others. Every recommendation came with reasoning. They steered me toward proven structures and scalable automation patterns, saving me significant time, rework, and resources. The speed at which I can now design, iterate, and improve has increased dramatically.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Founder, B2B SaaS",
   },
   {
     quote:
       "Create Workflow doesn't operate like a team that simply completes tasks for you. They coach. They teach. They challenge your assumptions. When I proposed certain design ideas, they didn't automatically agree — they asked questions, pushed me to clarify requirements, and think in systems rather than isolated features. That shift in mindset has been one of the most valuable outcomes of working together.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "CEO, Digital Agency",
   },
   {
     quote:
       "Rather than patching issues, they look at root causes. Rather than adding complexity, they search for simplification. They consistently asked how to design something robust, clean, and future-proof. That perspective helped me move from building tactical solutions to building strategic systems.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Founder, E-commerce Brand",
   },
   {
     quote:
       "Create Workflow is more than a talented tech team. They have very good business and common sense and are a terrific sounding board on problem solving and offering creative solutions. Very responsive and reliable. I would recommend them highly.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Operator, Professional Services",
   },
   {
     quote:
       "My problem persisted for 6 months until Create Workflow came and delivered the project in 3 days. They went an extra mile to help me host and run it, which wasn't in their scope. Create Workflow is top tier talent and one of the most professional teams I've seen in tech. Extremely reliable.",
-    name: "[Name]",
-    role: "[Role]",
+    role: "Founder, Tech Startup",
   },
+];
+
+const BEFORE_AFTER = [
+  { before: "Researching leads manually every morning", after: "AI agent runs prospect research overnight, automatically" },
+  { before: "Support inbox piling up with repetitive questions", after: "80% of tickets deflected before they reach your team" },
+  { before: "Copy-pasting data between tools all day", after: "Everything syncs in real time — zero manual transfers" },
+  { before: "Building weekly reports from scratch", after: "Reports generate and deliver themselves on a schedule" },
+  { before: "Onboarding new clients step by step, manually", after: "Onboarding agent runs the full checklist automatically" },
+  { before: "Hours lost to admin your team shouldn't be doing", after: "Your team focuses on work only humans can do" },
 ];
 
 export default function Home() {
@@ -118,9 +124,9 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
           >
-            You focus on the vision.
+            Your most repetitive work,
             <br />
-            <span className="text-muted">We build the systems.</span>
+            <span className="text-muted">done by AI.</span>
           </motion.h1>
 
           <motion.p
@@ -128,9 +134,9 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            Technical services for non-technical founders. We design n8n
-            automations, Airtable backends, and custom integrations&mdash;so
-            your startup runs on autopilot.
+            We build the AI agents, automations, and connected systems that
+            handle your operations — so you and your team focus on work only
+            humans can do.
           </motion.p>
 
           <motion.div
@@ -142,20 +148,45 @@ export default function Home() {
               href="#contact"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
+              className="inline-flex h-12 items-center gap-2 justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
             >
-              Get a free consultation
+              Book a free workflow audit
+              <ArrowRightIcon />
             </motion.a>
             <motion.a
-              href="#services"
+              href="#before-after"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-card px-8 text-sm font-medium text-foreground transition-colors hover:bg-border/40"
             >
-              See what we do
+              See what changes
             </motion.a>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* ─── REVIEWS ─── */}
+      <section
+        id="reviews"
+        className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32"
+      >
+        <div className="mx-auto max-w-5xl px-6">
+          <SectionHeader
+            label="Client reviews"
+            title="Trusted by founders who ship"
+          />
+          <motion.div
+            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {TESTIMONIALS.map((t, i) => (
+              <ReviewCard key={i} quote={t.quote} role={t.role} />
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* ─── TRUST BAR ─── */}
@@ -167,15 +198,16 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="border-y border-border/60 bg-card"
       >
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-6 py-8 text-muted">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6 py-8 text-muted">
           <span className="text-xs font-medium uppercase tracking-widest">
             Built with
           </span>
           {[
+            { icon: <BotIcon />, label: "Claude / GPT-4o" },
             { icon: <N8nIcon />, label: "n8n" },
             { icon: <AirtableIcon />, label: "Airtable" },
+            { icon: <ZapIcon />, label: "Zapier / Make" },
             { icon: <WebhookIcon />, label: "REST APIs" },
-            { icon: <ZapIcon />, label: "Zapier" },
           ].map((item) => (
             <motion.div
               key={item.label}
@@ -217,6 +249,46 @@ export default function Home() {
                   {stat.number}
                 </p>
                 <p className="mt-2 text-sm text-muted">{stat.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── BEFORE / AFTER ─── */}
+      <section id="before-after" className="flex min-h-[80vh] items-center py-24 sm:py-32">
+        <div className="mx-auto max-w-4xl px-6">
+          <SectionHeader
+            label="What changes"
+            title="Stop doing work a system should handle."
+            description="Every hour your team spends on repetitive tasks is an hour not spent on growth. Here's what we take off their plate."
+          />
+          <motion.div
+            className="mt-14 flex flex-col divide-y divide-border/60 rounded-2xl border border-card-border bg-card overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {BEFORE_AFTER.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-2 gap-4 px-6 py-4 sm:px-8 sm:py-5"
+              >
+                <div className="flex items-start gap-3 text-sm text-muted">
+                  <span className="mt-0.5 flex-shrink-0 h-4 w-4 rounded-full border border-border/60 inline-flex items-center justify-center">
+                    <span className="h-1.5 w-1.5 rounded-full bg-muted/40" />
+                  </span>
+                  <span className="line-through opacity-50">{item.before}</span>
+                </div>
+                <div className="flex items-start gap-3 text-sm">
+                  <span className="mt-0.5 flex-shrink-0 text-emerald-600">
+                    <CheckIcon />
+                  </span>
+                  <span>{item.after}</span>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -436,30 +508,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── REVIEWS ─── */}
-      <section
-        id="reviews"
-        className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32"
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <SectionHeader
-            label="Client reviews"
-            title="Trusted by founders who ship"
-          />
-          <motion.div
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-          >
-            {TESTIMONIALS.map((t, i) => (
-              <ReviewCard key={i} quote={t.quote} name={t.name} role={t.role} />
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* ─── FAQ ─── */}
       <section className="flex min-h-screen items-center py-24 sm:py-32">
         <div className="mx-auto w-full max-w-3xl px-6">
@@ -516,20 +564,29 @@ export default function Home() {
           viewport={{ once: true, amount: 0.4 }}
           variants={heroStagger}
         >
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-700 px-4 py-1.5 text-xs font-medium text-neutral-400"
+          >
+            <SparklesIcon />
+            Free — no commitment
+          </motion.div>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Ready to automate?
+            Book a free 30-minute workflow audit.
           </motion.h2>
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-4 max-w-md text-base leading-relaxed text-neutral-400"
           >
-            Book a free 30-minute call. We&rsquo;ll scope your project, give
-            you an honest estimate, and only move forward if it&rsquo;s a fit.
+            We&rsquo;ll map your 3 highest-impact automation opportunities and
+            give you a clear action plan to act on immediately —
+            before you spend a cent.
           </motion.p>
           <motion.a
             href="mailto:team@createworkflow.io"
@@ -537,9 +594,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-medium text-foreground shadow-sm transition-opacity hover:opacity-90"
+            className="mt-10 inline-flex h-12 items-center gap-2 justify-center rounded-full bg-white px-8 text-sm font-medium text-foreground shadow-sm transition-opacity hover:opacity-90"
           >
             team@createworkflow.io
+            <ArrowRightIcon />
           </motion.a>
         </motion.div>
       </section>
