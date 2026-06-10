@@ -239,6 +239,75 @@ export function SearchIcon() {
   );
 }
 
+export function LMStudioIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="7" y="7" width="10" height="10" rx="1"/>
+      <path d="M7 9H5M7 13H5M17 9h2M17 13h2M9 7V5M13 7V5M9 17v2M13 17v2"/>
+    </svg>
+  );
+}
+
+export function GeminiIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2c0 0 2 5 2 10s-2 10-2 10c0 0-2-5-2-10s2-10 2-10z"/>
+      <path d="M2 12c0 0 5-2 10-2s10 2 10 2c0 0-5 2-10 2s-10-2-10-2z"/>
+    </svg>
+  );
+}
+
+export function SoftrIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="17" width="18" height="3" rx="1"/>
+      <rect x="6" y="11" width="12" height="3" rx="1"/>
+      <rect x="9" y="5" width="6" height="3" rx="1"/>
+    </svg>
+  );
+}
+
+export function GlideIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2"/>
+      <line x1="9" y1="7" x2="15" y2="7"/>
+      <line x1="9" y1="11" x2="15" y2="11"/>
+      <line x1="9" y1="15" x2="12" y2="15"/>
+    </svg>
+  );
+}
+
+export function WindsurfIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="4 17 10 11 4 5"/>
+      <line x1="12" y1="19" x2="20" y2="19"/>
+    </svg>
+  );
+}
+
+export function DokployIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+      <path d="M2 17l10 5 10-5"/>
+      <path d="M2 12l10 5 10-5"/>
+    </svg>
+  );
+}
+
+export function MiroIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2"/>
+      <path d="M9 3v18"/>
+      <path d="M3 9h6M3 15h6"/>
+      <path d="M13 8l4 4-4 4"/>
+    </svg>
+  );
+}
+
 export function BoxIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

@@ -185,6 +185,7 @@ export function Navbar() {
         <motion.div
           animate={{
             flex: isScrolled ? 1 : 0,
+            maxWidth: isScrolled ? 600 : 0,
             opacity: isScrolled ? 1 : 0,
           }}
           transition={transition}
@@ -266,10 +267,11 @@ export function Navbar() {
         <motion.div
           animate={{
             flex: isScrolled ? 1 : 0,
+            maxWidth: isScrolled ? 600 : 0,
             opacity: isScrolled ? 1 : 0,
           }}
           transition={transition}
-          className={`hidden md:flex items-center justify-end gap-8 min-w-0 ${!isScrolled ? "pointer-events-none" : ""}`}
+          className={`hidden md:flex items-center justify-end gap-8 min-w-0 overflow-hidden ${!isScrolled ? "pointer-events-none" : ""}`}
         >
           {NAV_LINKS.filter((l) => l.href !== "/").map((link) =>
             renderDesktopLink(link)
