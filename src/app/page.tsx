@@ -523,14 +523,14 @@ export default function Home() {
             you an honest estimate, and only move forward if it&rsquo;s a fit.
           </motion.p>
           <motion.a
-            href="mailto:hello@createworkflow.com"
+            href="mailto:team@createworkflow.io"
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-medium text-foreground shadow-sm transition-opacity hover:opacity-90"
           >
-            hello@createworkflow.com
+            team@createworkflow.io
           </motion.a>
         </motion.div>
       </section>
