@@ -125,41 +125,51 @@ export default function Home() {
         />
 
         <motion.div
-          className="mx-auto max-w-3xl px-6 text-center"
+          className="mx-auto max-w-5xl px-6 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
         >
+          {/* Badges stack */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted"
+            className="mb-6 flex flex-col items-center gap-3"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            Accepting new clients
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Accepting new clients
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-medium text-violet-700">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
+              </span>
+              Stop doing $10/hr work as a $10k/hr founder.
+            </div>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
+            className="text-4xl font-semibold leading-[1.2] tracking-tight sm:text-5xl md:text-6xl"
           >
-            The operating system
+            <span className="text-muted">Reduce manual work,</span>
             <br />
-            <span className="text-muted">your business was missing.</span>
+            focus on business growth
+            <br />
+            by leveraging new age AI systems.
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
           >
-            We build the AI agents, automations, and connected systems that reduce manual work
-            and power your business operations — so you and your team focus on high impact work only
-            humans can do.
+            We build the AI agents, automations, internal portals and AI connected systems that power your business operations — so you and your team focus on work that humans do best.
           </motion.p>
 
           <motion.div
