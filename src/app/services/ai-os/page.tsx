@@ -235,7 +235,7 @@ export default function AIOperatingSystemPage() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            AI that runs your entire operation
+            Your operations, automated. Your team, unblocked.
           </motion.div>
 
           <motion.h1
@@ -243,9 +243,9 @@ export default function AIOperatingSystemPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
           >
-            Replace your ops team
+            From founder doing everything,
             <br />
-            <span className="text-muted">with an AI OS.</span>
+            <span className="text-muted">to founder building everything.</span>
           </motion.h1>
 
           <motion.p

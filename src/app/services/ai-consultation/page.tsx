@@ -165,7 +165,7 @@ export default function AIConsultationPage() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
             </span>
-            60 minutes. Real answers. Written action plan.
+            More growth. Less admin. Same team.
           </motion.div>
 
           <motion.h1
@@ -173,9 +173,9 @@ export default function AIConsultationPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
           >
-            AI clarity
+            Run a smarter business.
             <br />
-            <span className="text-muted">in one hour.</span>
+            <span className="text-muted">Work less hours doing it.</span>
           </motion.h1>
 
           <motion.p

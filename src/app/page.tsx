@@ -25,12 +25,12 @@ import {
   ScanIcon,
   ArrowRightIcon,
   CheckIcon,
+  XIcon,
 } from "@/components/icons";
 import { ServiceCard } from "@/components/ServiceCard";
 import { StepCard } from "@/components/StepCard";
 import { ReviewCard } from "@/components/ReviewCard";
 import { SectionHeader } from "@/components/SectionHeader";
-import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
 
 const TESTIMONIALS = [
@@ -124,9 +124,9 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
           >
-            Your most repetitive work,
+            The operating system
             <br />
-            <span className="text-muted">done by AI.</span>
+            <span className="text-muted">your business was missing.</span>
           </motion.h1>
 
           <motion.p
@@ -135,7 +135,7 @@ export default function Home() {
             className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
             We build the AI agents, automations, and connected systems that
-            handle your operations — so you and your team focus on work only
+            handle your business operations — so you and your team focus on work only
             humans can do.
           </motion.p>
 
@@ -223,48 +223,23 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* ─── STATS ─── */}
-      <section className="flex min-h-screen items-center justify-center py-24 sm:py-32">
-        <div className="mx-auto max-w-4xl px-6">
-          <motion.div
-            className="grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainer}
-          >
-            {[
-              { number: "500+", label: "Workflows Built" },
-              { number: "50+", label: "Founders Helped" },
-              { number: "12", label: "Countries Served" },
-              { number: "98%", label: "Client Satisfaction" },
-            ].map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeUp}
-                transition={{ duration: 0.5 }}
-                className="text-center"
-              >
-                <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
-                  {stat.number}
-                </p>
-                <p className="mt-2 text-sm text-muted">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* ─── BEFORE / AFTER ─── */}
       <section id="before-after" className="flex min-h-[80vh] items-center py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6">
           <SectionHeader
             label="What changes"
-            title="Stop doing work a system should handle."
-            description="Every hour your team spends on repetitive tasks is an hour not spent on growth. Here's what we take off their plate."
+            title="Your team should be closing deals, not copying data."
+            description="We automate the work slowing you down. Here's what that looks like in practice."
           />
+
+          {/* Column headers */}
+          <div className="mt-14 grid grid-cols-2 gap-4 px-6 sm:px-8 mb-2">
+            <span className="text-xs font-semibold uppercase tracking-widest text-muted/50">Before</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600">After</span>
+          </div>
+
           <motion.div
-            className="mt-14 flex flex-col divide-y divide-border/60 rounded-2xl border border-card-border bg-card overflow-hidden"
+            className="flex flex-col divide-y divide-border/40 rounded-2xl border border-card-border bg-card overflow-hidden"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -275,19 +250,19 @@ export default function Home() {
                 key={i}
                 variants={fadeUp}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-2 gap-4 px-6 py-4 sm:px-8 sm:py-5"
+                className="grid grid-cols-2 gap-4 px-6 py-5 sm:px-8 sm:py-6 hover:bg-neutral-50/50 transition-colors"
               >
-                <div className="flex items-start gap-3 text-sm text-muted">
-                  <span className="mt-0.5 flex-shrink-0 h-4 w-4 rounded-full border border-border/60 inline-flex items-center justify-center">
-                    <span className="h-1.5 w-1.5 rounded-full bg-muted/40" />
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-shrink-0 text-red-400">
+                    <XIcon />
                   </span>
-                  <span className="line-through opacity-50">{item.before}</span>
+                  <span className="text-sm text-muted leading-relaxed">{item.before}</span>
                 </div>
-                <div className="flex items-start gap-3 text-sm">
-                  <span className="mt-0.5 flex-shrink-0 text-emerald-600">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-shrink-0 text-emerald-500">
                     <CheckIcon />
                   </span>
-                  <span>{item.after}</span>
+                  <span className="text-sm font-medium leading-relaxed">{item.after}</span>
                 </div>
               </motion.div>
             ))}
@@ -354,11 +329,11 @@ export default function Home() {
       </section>
 
       {/* ─── WHY LEANWORKFLOWS ─── */}
-      <section className="flex min-h-screen items-center py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="Why Create Workflow"
-            title="Built for founders, not enterprises"
+            title="Hire less. Automate more. Grow faster."
           />
           <motion.div
             className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
@@ -408,7 +383,7 @@ export default function Home() {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32">
+      <section className="border-y border-border/60 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="How it works"
@@ -435,74 +410,6 @@ export default function Home() {
               number="03"
               title="Launch & support"
               description="We deploy everything, train your team, and stick around to make sure it all runs smoothly."
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── PRICING ─── */}
-      <section
-        id="pricing"
-        className="flex min-h-screen items-center py-24 sm:py-32"
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <SectionHeader
-            label="Pricing"
-            title="Simple, transparent pricing"
-            description="No hourly billing surprises. Choose the package that fits your stage."
-          />
-          <motion.div
-            className="mt-14 grid gap-6 sm:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
-            <PricingCard
-              tier="Starter"
-              price="$1,500"
-              period="project"
-              description="Perfect for a single automation or integration."
-              features={[
-                "1 workflow or integration",
-                "Airtable or n8n setup",
-                "2 rounds of revisions",
-                "Documentation included",
-                "1 week delivery",
-              ]}
-              ctaText="Get started"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Growth"
-              price="$3,500"
-              period="project"
-              description="For founders ready to systematize operations."
-              features={[
-                "Up to 3 connected workflows",
-                "Airtable backend + automations",
-                "API integrations included",
-                "Priority Slack support",
-                "2-3 week delivery",
-              ]}
-              highlighted
-              ctaText="Most popular"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Scale"
-              price="Custom"
-              period="month"
-              description="Ongoing automation partner for your team."
-              features={[
-                "Unlimited workflow requests",
-                "Dedicated automation engineer",
-                "Monthly strategy calls",
-                "Priority support & SLA",
-                "Cancel anytime",
-              ]}
-              ctaText="Book a call"
-              ctaHref="#contact"
             />
           </motion.div>
         </div>
@@ -577,7 +484,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Book a free 30-minute workflow audit.
+            What if your business ran while you slept?
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -623,12 +530,6 @@ export default function Home() {
               className="transition-colors hover:text-foreground"
             >
               Services
-            </a>
-            <a
-              href="#pricing"
-              className="transition-colors hover:text-foreground"
-            >
-              Pricing
             </a>
             <a
               href="#reviews"

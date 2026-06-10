@@ -16,7 +16,6 @@ import {
   SparklesIcon,
 } from "@/components/icons";
 import { SectionHeader } from "@/components/SectionHeader";
-import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
 
 const FEATURES = [
@@ -204,9 +203,9 @@ export default function SelfHostingPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
           >
-            AI infrastructure
+            Build once.
             <br />
-            <span className="text-muted">you actually own.</span>
+            <span className="text-muted">Run forever.</span>
           </motion.h1>
 
           <motion.p
@@ -362,75 +361,6 @@ export default function SelfHostingPage() {
         </div>
       </section>
 
-      {/* ─── 5. PRICING ─── */}
-      <section id="pricing" className="flex min-h-screen items-center py-24 sm:py-32">
-        <div className="mx-auto max-w-5xl px-6">
-          <SectionHeader
-            label="Pricing"
-            title="Infrastructure packages"
-            description="Fixed-price deployments. You own everything from day one — no ongoing licence fees to us."
-          />
-          <motion.div
-            className="mt-14 grid gap-6 sm:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
-            <PricingCard
-              tier="Starter Stack"
-              price="$1,500"
-              period="one-time"
-              description="A single self-hosted LLM with a basic API endpoint — perfect for testing and internal tools."
-              features={[
-                "1 open-source LLM deployed",
-                "Docker Compose setup",
-                "REST API endpoint",
-                "SSL & reverse proxy",
-                "Basic monitoring",
-                "Setup documentation",
-              ]}
-              ctaText="Get started"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Full AI Stack"
-              price="$4,000"
-              period="one-time"
-              description="Complete self-hosted infrastructure — LLMs, vector database, automation engine, and monitoring."
-              features={[
-                "Up to 3 LLMs deployed",
-                "Vector database (Qdrant / pgvector)",
-                "n8n or Flowise automation",
-                "Kubernetes or Docker Compose",
-                "Prometheus + Grafana monitoring",
-                "Full documentation & runbooks",
-                "1-week delivery",
-              ]}
-              highlighted
-              ctaText="Most popular"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Managed Infra"
-              price="Custom"
-              period="month"
-              description="Ongoing infrastructure partner — updates, scaling, security patches, and on-call support."
-              features={[
-                "All Full AI Stack features",
-                "Monthly stack updates",
-                "Security hardening",
-                "On-call support",
-                "Performance reviews",
-                "Cancel anytime",
-              ]}
-              ctaText="Book a call"
-              ctaHref="#contact"
-            />
-          </motion.div>
-        </div>
-      </section>
-
       {/* ─── 6. FAQ ─── */}
       <section className="flex min-h-[60vh] items-center border-y border-border/60 bg-card py-24 sm:py-32">
         <div className="mx-auto w-full max-w-3xl px-6">
@@ -519,9 +449,6 @@ export default function SelfHostingPage() {
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted">
             <Link href="#stack" className="transition-colors hover:text-foreground">
               The Stack
-            </Link>
-            <Link href="#pricing" className="transition-colors hover:text-foreground">
-              Pricing
             </Link>
             <Link href="#contact" className="transition-colors hover:text-foreground">
               Contact

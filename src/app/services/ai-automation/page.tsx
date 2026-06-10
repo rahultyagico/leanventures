@@ -22,7 +22,6 @@ import {
   SupportIcon,
 } from "@/components/icons";
 import { SectionHeader } from "@/components/SectionHeader";
-import { PricingCard } from "@/components/PricingCard";
 import { FAQItem } from "@/components/FAQItem";
 
 /* ── Local components ── */
@@ -408,7 +407,7 @@ export default function AIAutomationServices() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
             </span>
-            Powered by GPT-4o &amp; Claude
+            Stop doing $10/hr work as a $10k/hr founder.
           </motion.div>
 
           <motion.h1
@@ -426,9 +425,9 @@ export default function AIAutomationServices() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
           >
-            We build autonomous agents and intelligent workflows that handle
-            lead qualification, support tickets, document processing, and
-            operations — 24/7, without hiring.
+            Your competitors have AI working overnight. We build the autonomous
+            agents and intelligent workflows that handle lead qualification,
+            support tickets, document processing, and operations — 24/7, without hiring.
           </motion.p>
 
           <motion.div
@@ -636,78 +635,6 @@ export default function AIAutomationServices() {
         </div>
       </section>
 
-      {/* ─── 8. PRICING ─── */}
-      <section
-        id="pricing"
-        className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32"
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <SectionHeader
-            label="Pricing"
-            title="AI automation packages for every stage"
-            description="Fixed-price projects. No hourly billing. No scope creep. A clear quote before we write a line of code."
-          />
-          <motion.div
-            className="mt-14 grid gap-6 sm:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
-            <PricingCard
-              tier="Starter Agent"
-              price="$2,000"
-              period="project"
-              description="One focused AI agent for your highest-impact workflow."
-              features={[
-                "1 autonomous agent",
-                "Up to 3 tool integrations",
-                "Prompt engineering included",
-                "Human escalation setup",
-                "Documentation & runbook",
-                "2-week delivery",
-              ]}
-              ctaText="Get started"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="Agent System"
-              price="$5,000"
-              period="project"
-              description="A coordinated system of agents that handles an entire workflow end-to-end."
-              features={[
-                "Up to 4 connected agents",
-                "Unlimited tool integrations",
-                "Vector knowledge base",
-                "Eval suite & QA testing",
-                "Monitoring dashboard",
-                "Priority Slack support",
-                "3–4 week delivery",
-              ]}
-              highlighted
-              ctaText="Most popular"
-              ctaHref="#contact"
-            />
-            <PricingCard
-              tier="AI Infrastructure"
-              price="Custom"
-              period="month"
-              description="Ongoing AI partner — build, maintain, and evolve your automation stack."
-              features={[
-                "Unlimited agent requests",
-                "Dedicated AI engineer",
-                "Monthly strategy sessions",
-                "Model performance reviews",
-                "Priority SLA & support",
-                "Cancel anytime",
-              ]}
-              ctaText="Book a call"
-              ctaHref="#contact"
-            />
-          </motion.div>
-        </div>
-      </section>
-
       {/* ─── 10. FAQ ─── */}
       <section className="flex min-h-screen items-center py-24 sm:py-32">
         <div className="mx-auto w-full max-w-3xl px-6">
@@ -796,9 +723,6 @@ export default function AIAutomationServices() {
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted">
             <Link href="#capabilities" className="transition-colors hover:text-foreground">
               Capabilities
-            </Link>
-            <Link href="#pricing" className="transition-colors hover:text-foreground">
-              Pricing
             </Link>
             <Link href="#contact" className="transition-colors hover:text-foreground">
               Contact
