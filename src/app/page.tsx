@@ -178,7 +178,9 @@ export default function Home() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center gap-2 justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
@@ -329,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* ─── TECH STACK ─── */}
-      <section className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32">
+      <section className="flex min-h-screen items-center border-b border-border/60 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="Our Favourite tools for workflow engineering"
@@ -437,7 +439,9 @@ export default function Home() {
             variants={heroStagger}
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               variants={fadeUp}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
@@ -495,7 +499,9 @@ export default function Home() {
             variants={heroStagger}
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               variants={fadeUp}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
@@ -631,7 +637,7 @@ export default function Home() {
               Reviews
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="transition-colors hover:text-foreground"
             >
               Contact

@@ -44,7 +44,7 @@ const NAV_LINKS: NavLink[] = [
       },
     ],
   },
-  { href: "#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const transition = {
@@ -66,7 +66,7 @@ export function Navbar() {
   });
 
   function isActive(href: string) {
-    if (href === "#contact") return false;
+    if (href === "/contact") return pathname === "/contact";
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   }

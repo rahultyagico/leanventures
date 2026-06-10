@@ -70,7 +70,9 @@ export default function Labs() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
@@ -589,7 +591,7 @@ export default function Labs() {
               Create Workflow
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="transition-colors hover:text-foreground"
             >
               Contact
