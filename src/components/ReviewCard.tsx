@@ -8,10 +8,12 @@ export function ReviewCard({
   quote,
   name,
   role,
+  inverted = false,
 }: {
   quote: string;
   name?: string;
   role?: string;
+  inverted?: boolean;
 }) {
   const isVerified = !name || name.startsWith("[");
   const displayName = isVerified ? "Verified Client" : name;
@@ -25,7 +27,11 @@ export function ReviewCard({
       variants={scaleIn}
       transition={{ duration: 0.5, ease: "easeOut" }}
       whileHover={{ y: -3 }}
-      className="rounded-2xl border border-card-border bg-card p-8"
+      className={`rounded-2xl border p-8 ${
+        inverted
+          ? "border-white/10 bg-white/[0.06]"
+          : "border-card-border bg-card"
+      }`}
     >
       <motion.div
         className="mb-4 flex gap-1"
@@ -52,20 +58,22 @@ export function ReviewCard({
           </motion.span>
         ))}
       </motion.div>
-      <p className="text-[15px] leading-relaxed text-foreground/90">
+      <p className={`text-[15px] leading-relaxed ${inverted ? "text-white/80" : "text-foreground/90"}`}>
         &ldquo;{quote}&rdquo;
       </p>
       <div className="mt-6 flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-xs font-bold text-foreground">
+        <div className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold ${
+          inverted ? "bg-white/10 text-white" : "bg-neutral-100 text-foreground"
+        }`}>
           {isVerified ? (
-            <span className="text-emerald-600 scale-110"><CheckIcon /></span>
+            <span className="text-emerald-400 scale-110"><CheckIcon /></span>
           ) : (
             initials
           )}
         </div>
         <div>
-          <p className="text-sm font-semibold">{displayName}</p>
-          <p className="text-xs text-muted">{displayRole}</p>
+          <p className={`text-sm font-semibold ${inverted ? "text-white" : ""}`}>{displayName}</p>
+          <p className={`text-xs ${inverted ? "text-white/40" : "text-muted"}`}>{displayRole}</p>
         </div>
       </div>
     </motion.div>

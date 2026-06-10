@@ -413,7 +413,9 @@ export default function AirtableServices() {
             className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-7 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-80"
@@ -626,7 +628,7 @@ export default function AirtableServices() {
                 "1-week delivery",
               ]}
               ctaText="Get started"
-              ctaHref="#contact"
+              ctaHref="/contact"
             />
             <PricingCard
               tier="Full Build"
@@ -644,7 +646,7 @@ export default function AirtableServices() {
               ]}
               highlighted
               ctaText="Most popular"
-              ctaHref="#contact"
+              ctaHref="/contact"
             />
             <PricingCard
               tier="Enterprise"
@@ -661,7 +663,7 @@ export default function AirtableServices() {
                 "Custom timeline",
               ]}
               ctaText="Book a call"
-              ctaHref="#contact"
+              ctaHref="/contact"
             />
           </motion.div>
         </div>
@@ -766,7 +768,7 @@ export default function AirtableServices() {
               FAQ
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="transition-colors hover:text-foreground"
             >
               Contact

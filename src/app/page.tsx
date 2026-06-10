@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import {
   fadeUp,
-  fadeIn,
   staggerContainer,
   heroStagger,
 } from "@/components/animations";
@@ -14,10 +13,14 @@ import {
   WebhookIcon,
   ZapIcon,
   IntegrationIcon,
-  StrategyIcon,
-  MigrationIcon,
-  SupportIcon,
   UsersIcon,
+  LMStudioIcon,
+  GeminiIcon,
+  SoftrIcon,
+  GlideIcon,
+  WindsurfIcon,
+  DokployIcon,
+  MiroIcon,
   ClockIcon,
   ShieldIcon,
   BotIcon,
@@ -79,7 +82,7 @@ export default function Home() {
 
   const blobY = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const blobScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.4, 0]);
+  const blobOpacity = useTransform(scrollYProgress, [0, 0.8], [0.18, 0]);
 
   return (
     <div className="min-h-screen font-sans">
@@ -88,6 +91,7 @@ export default function Home() {
         ref={heroRef}
         className="relative isolate flex min-h-screen items-center justify-center overflow-hidden"
       >
+        {/* Primary gradient orb — scroll-parallax */}
         <motion.div
           aria-hidden
           suppressHydrationWarning
@@ -96,55 +100,76 @@ export default function Home() {
             scale: blobScale,
             opacity: blobOpacity,
             background:
-              "radial-gradient(ellipse, var(--gradient-start), var(--gradient-end), transparent 70%)",
+              "radial-gradient(ellipse, #a855f7, #6366f1, #ec4899, transparent 70%)",
           }}
-          className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[480px] w-[640px] -translate-x-1/2 rounded-full blur-[100px]"
+          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[560px] w-[780px] -translate-x-1/2 rounded-full blur-[120px]"
         />
+        {/* Secondary ambient orb — bottom right */}
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-0 right-1/4 -z-10 h-[380px] w-[480px] rounded-full opacity-[0.18] blur-[110px]"
+          className="pointer-events-none absolute -bottom-20 right-1/4 -z-10 h-[380px] w-[480px] rounded-full opacity-[0.12] blur-[110px]"
           style={{
             background:
-              "radial-gradient(ellipse, #d1fae5, #6ee7b7, transparent 70%)",
+              "radial-gradient(ellipse, #06b6d4, #6366f1, transparent 70%)",
+          }}
+        />
+        {/* Dot grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+            backgroundSize: "32px 32px",
           }}
         />
 
         <motion.div
-          className="mx-auto max-w-3xl px-6 text-center"
+          className="mx-auto max-w-5xl px-6 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
         >
+          {/* Badges stack */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted"
+            className="mb-6 flex flex-col items-center gap-3"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            Accepting new clients
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Accepting new clients
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1.5 text-xs font-medium text-violet-700">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
+              </span>
+              Stop doing $10/hr work as a $10k/hr founder.
+            </div>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl"
+            className="text-4xl font-semibold leading-[1.2] tracking-tight sm:text-5xl md:text-6xl"
           >
-            The operating system
+            <span className="text-muted">Reduce manual work,</span>
             <br />
-            <span className="text-muted">your business was missing.</span>
+            focus on business growth
+            <br />
+            by leveraging new age AI systems.
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted"
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
           >
-            We build the AI agents, automations, and connected systems that
-            handle your business operations — so you and your team focus on work only
-            humans can do.
+            We build the AI agents, automations, internal portals and AI connected systems that power your business operations — so you and your team focus on work that humans do best.
           </motion.p>
 
           <motion.div
@@ -153,7 +178,9 @@ export default function Home() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center gap-2 justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
@@ -176,12 +203,13 @@ export default function Home() {
       {/* ─── REVIEWS ─── */}
       <section
         id="reviews"
-        className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32"
+        className="bg-foreground py-24 sm:py-32"
       >
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="Client reviews"
             title="Trusted by founders who ship"
+            inverted
           />
           <motion.div
             className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
@@ -191,51 +219,17 @@ export default function Home() {
             variants={staggerContainer}
           >
             {TESTIMONIALS.map((t, i) => (
-              <ReviewCard key={i} quote={t.quote} role={t.role} />
+              <ReviewCard key={i} quote={t.quote} role={t.role} inverted />
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ─── TRUST BAR ─── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeIn}
-        transition={{ duration: 0.6 }}
-        className="border-y border-border/60 bg-card"
-      >
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6 py-8 text-muted">
-          <span className="text-xs font-medium uppercase tracking-widest">
-            Built with
-          </span>
-          {[
-            { icon: <BotIcon />, label: "Claude / GPT-4o" },
-            { icon: <N8nIcon />, label: "n8n" },
-            { icon: <AirtableIcon />, label: "Airtable" },
-            { icon: <ZapIcon />, label: "Zapier / Make" },
-            { icon: <WebhookIcon />, label: "REST APIs" },
-          ].map((item) => (
-            <motion.div
-              key={item.label}
-              whileHover={{ y: -2 }}
-              className="flex items-center gap-2.5"
-            >
-              {item.icon}
-              <span className="text-sm font-semibold text-foreground">
-                {item.label}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
       {/* ─── BEFORE / AFTER ─── */}
       <section id="before-after" className="flex min-h-[80vh] items-center py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-6">
           <SectionHeader
-            label="What changes"
+            label="Before & after"
             title="Your team should be closing deals, not copying data."
             description="We automate the work slowing you down. Here's what that looks like in practice."
           />
@@ -336,8 +330,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── TECH STACK ─── */}
+      <section className="flex min-h-screen items-center border-b border-border/60 bg-card py-24 sm:py-32">
+        <div className="mx-auto max-w-5xl px-6">
+          <SectionHeader
+            label="Our Favourite tools for workflow engineering"
+            title="Tech Stack we work with"
+            description="We work with the best automation and AI tools available — and connect them into systems that actually work together."
+          />
+          <motion.div
+            className="mt-14 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {[
+              { icon: <BotIcon />, label: "Claude / GPT-4o", sub: "AI models" },
+              { icon: <GeminiIcon />, label: "Gemini", sub: "Google AI" },
+              { icon: <LMStudioIcon />, label: "LM Studio", sub: "Local LLMs" },
+              { icon: <N8nIcon />, label: "n8n", sub: "Workflow automation" },
+              { icon: <ZapIcon />, label: "Zapier / Make", sub: "Integrations" },
+              { icon: <WebhookIcon />, label: "REST APIs", sub: "Custom connections" },
+              { icon: <AirtableIcon />, label: "Airtable", sub: "No-code database" },
+              { icon: <SoftrIcon />, label: "Softr", sub: "No-code apps" },
+              { icon: <GlideIcon />, label: "Glide", sub: "App builder" },
+              { icon: <MiroIcon />, label: "Miro", sub: "Visual collaboration" },
+              { icon: <WindsurfIcon />, label: "Windsurf", sub: "AI code editor" },
+              { icon: <DokployIcon />, label: "Dokploy", sub: "Deployment" },
+            ].map((item) => (
+              <motion.div
+                key={item.label}
+                variants={fadeUp}
+                transition={{ duration: 0.4 }}
+                whileHover={{ y: -3 }}
+                className="flex flex-col items-center gap-3 rounded-2xl border border-card-border bg-background p-4 text-center sm:p-6"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-100 text-foreground">
+                  {item.icon}
+                </div>
+                <div>
+                  <p className="text-xs font-semibold sm:text-sm">{item.label}</p>
+                  <p className="mt-0.5 text-[10px] text-muted sm:text-xs">{item.sub}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* ─── WHY LEANWORKFLOWS ─── */}
-      <section className="bg-foreground py-24 sm:py-32">
+      <section className="flex min-h-screen items-center bg-foreground py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="Why Create Workflow"
@@ -388,11 +431,38 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+          <motion.div
+            className="mt-16 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={heroStagger}
+          >
+            <motion.a
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={fadeUp}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-8 text-sm font-medium text-foreground transition-opacity hover:opacity-90"
+            >
+              Book a free workflow audit
+              <ArrowRightIcon />
+            </motion.a>
+            <motion.a
+              href="#services"
+              variants={fadeUp}
+              className="text-sm text-white/50 transition-colors hover:text-white/80"
+            >
+              See our services →
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="border-y border-border/60 bg-card py-24 sm:py-32">
+      <section className="flex min-h-screen items-center border-y border-border/60 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <SectionHeader
             label="How it works"
@@ -420,6 +490,26 @@ export default function Home() {
               title="Launch & support"
               description="We deploy everything, train your team, and stick around to make sure it all runs smoothly."
             />
+          </motion.div>
+          <motion.div
+            className="mt-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={heroStagger}
+          >
+            <motion.a
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={fadeUp}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-80"
+            >
+              Book your discovery call
+              <ArrowRightIcon />
+            </motion.a>
           </motion.div>
         </div>
       </section>
@@ -547,7 +637,7 @@ export default function Home() {
               Reviews
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="transition-colors hover:text-foreground"
             >
               Contact

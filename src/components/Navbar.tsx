@@ -11,10 +11,13 @@ import {
 } from "motion/react";
 import { ChevronDownIcon } from "./icons";
 
+type NavChild = { href: string; label: string };
+type NavGroup = { category: string; items: NavChild[] };
+
 type NavLink = {
   href: string;
   label: string;
-  children?: { href: string; label: string }[];
+  groups?: NavGroup[];
 };
 
 const NAV_LINKS: NavLink[] = [
@@ -22,16 +25,26 @@ const NAV_LINKS: NavLink[] = [
   {
     href: "/services",
     label: "Services",
-    children: [
-      { href: "/services/ai-automation", label: "AI Automation" },
-      { href: "/services/airtable", label: "Airtable Services" },
-      { href: "/services/self-hosting", label: "Self Hosting Infrastructure" },
-      { href: "/services/ai-consultation", label: "One Hour AI Consultation" },
-      { href: "/services/ai-os", label: "Build Your AI OS" },
-      { href: "/labs", label: "Customized Solutions" },
+    groups: [
+      {
+        category: "AI Automation Services",
+        items: [
+          { href: "/services/ai-automation", label: "AI Automation" },
+          { href: "/services/ai-os", label: "Build Your AI OS" },
+          { href: "/services/ai-consultation", label: "One Hour AI Consultation" },
+        ],
+      },
+      {
+        category: "No Code Services",
+        items: [
+          { href: "/services/airtable", label: "Airtable Services" },
+          { href: "/services/self-hosting", label: "Self Hosting Infrastructure" },
+          { href: "/labs", label: "Customized Solutions" },
+        ],
+      },
     ],
   },
-  { href: "#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const transition = {
@@ -53,7 +66,7 @@ export function Navbar() {
   });
 
   function isActive(href: string) {
-    if (href === "#contact") return false;
+    if (href === "/contact") return pathname === "/contact";
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   }
@@ -81,7 +94,7 @@ export function Navbar() {
   }, []);
 
   function renderDesktopLink(link: NavLink) {
-    if (link.children) {
+    if (link.groups) {
       return (
         <div
           key={link.href}
@@ -108,20 +121,27 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -4, scale: 0.97 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
-                className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-xl border border-border/60 bg-background/90 backdrop-blur-md p-2 shadow-lg"
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 rounded-xl border border-border/60 bg-background/90 backdrop-blur-md p-2 shadow-lg"
               >
-                {link.children.map((child) => (
-                  <Link
-                    key={child.href}
-                    href={child.href}
-                    className={`block rounded-lg px-3 py-2.5 text-sm transition-colors ${
-                      pathname === child.href
-                        ? "bg-neutral-100 text-foreground font-medium"
-                        : "text-muted hover:bg-neutral-50 hover:text-foreground"
-                    }`}
-                  >
-                    {child.label}
-                  </Link>
+                {link.groups.map((group, gi) => (
+                  <div key={group.category} className={gi > 0 ? "mt-2 pt-2 border-t border-border/40" : ""}>
+                    <p className="px-3 pt-1 pb-1.5 text-[10px] font-semibold uppercase tracking-widest text-muted/50">
+                      {group.category}
+                    </p>
+                    {group.items.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className={`block rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                          pathname === child.href
+                            ? "bg-neutral-100 text-foreground font-medium"
+                            : "text-muted hover:bg-neutral-50 hover:text-foreground"
+                        }`}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
                 ))}
               </motion.div>
             )}
@@ -165,6 +185,7 @@ export function Navbar() {
         <motion.div
           animate={{
             flex: isScrolled ? 1 : 0,
+            maxWidth: isScrolled ? 600 : 0,
             opacity: isScrolled ? 1 : 0,
           }}
           transition={transition}
@@ -246,10 +267,11 @@ export function Navbar() {
         <motion.div
           animate={{
             flex: isScrolled ? 1 : 0,
+            maxWidth: isScrolled ? 600 : 0,
             opacity: isScrolled ? 1 : 0,
           }}
           transition={transition}
-          className={`hidden md:flex items-center justify-end gap-8 min-w-0 ${!isScrolled ? "pointer-events-none" : ""}`}
+          className={`hidden md:flex items-center justify-end gap-8 min-w-0 overflow-hidden ${!isScrolled ? "pointer-events-none" : ""}`}
         >
           {NAV_LINKS.filter((l) => l.href !== "/").map((link) =>
             renderDesktopLink(link)
@@ -277,7 +299,7 @@ export function Navbar() {
             <div className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
                 <div key={link.href}>
-                  {link.children ? (
+                  {link.groups ? (
                     <>
                       <button
                         onClick={() =>
@@ -309,22 +331,29 @@ export function Navbar() {
                             transition={{ duration: 0.2, ease: "easeOut" }}
                             className="overflow-hidden"
                           >
-                            {link.children.map((child) => (
-                              <Link
-                                key={child.href}
-                                href={child.href}
-                                onClick={() => {
-                                  setMobileOpen(false);
-                                  setMobileServicesOpen(false);
-                                }}
-                                className={`block rounded-lg px-6 py-2 text-sm text-center transition-colors ${
-                                  pathname === child.href
-                                    ? "text-foreground font-medium"
-                                    : "text-muted hover:text-foreground"
-                                }`}
-                              >
-                                {child.label}
-                              </Link>
+                            {link.groups.map((group, gi) => (
+                              <div key={group.category} className={gi > 0 ? "mt-2 pt-2 border-t border-border/40" : "mt-1"}>
+                                <p className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-widest text-muted/50 text-center">
+                                  {group.category}
+                                </p>
+                                {group.items.map((child) => (
+                                  <Link
+                                    key={child.href}
+                                    href={child.href}
+                                    onClick={() => {
+                                      setMobileOpen(false);
+                                      setMobileServicesOpen(false);
+                                    }}
+                                    className={`block rounded-lg px-6 py-2 text-sm text-center transition-colors ${
+                                      pathname === child.href
+                                        ? "text-foreground font-medium"
+                                        : "text-muted hover:text-foreground"
+                                    }`}
+                                  >
+                                    {child.label}
+                                  </Link>
+                                ))}
+                              </div>
                             ))}
                           </motion.div>
                         )}

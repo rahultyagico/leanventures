@@ -264,7 +264,9 @@ export default function AIOperatingSystemPage() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <motion.a
-              href="#contact"
+              href="https://calendly.com/rahultyagico"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex h-12 items-center gap-2 justify-center rounded-full bg-accent px-8 text-sm font-medium text-accent-foreground shadow-sm transition-opacity hover:opacity-80"
@@ -460,7 +462,7 @@ export default function AIOperatingSystemPage() {
                 "3–4 week delivery",
               ]}
               ctaText="Get started"
-              ctaHref="#contact"
+              ctaHref="/contact"
             />
             <PricingCard
               tier="Full Business OS"
@@ -478,7 +480,7 @@ export default function AIOperatingSystemPage() {
               ]}
               highlighted
               ctaText="Most popular"
-              ctaHref="#contact"
+              ctaHref="/contact"
             />
             <PricingCard
               tier="AI OS Partner"
@@ -494,7 +496,7 @@ export default function AIOperatingSystemPage() {
                 "Cancel anytime",
               ]}
               ctaText="Book a call"
-              ctaHref="#contact"
+              ctaHref="/contact"
             />
           </motion.div>
         </div>
@@ -592,7 +594,7 @@ export default function AIOperatingSystemPage() {
             <Link href="#pricing" className="transition-colors hover:text-foreground">
               Pricing
             </Link>
-            <Link href="#contact" className="transition-colors hover:text-foreground">
+            <Link href="/contact" className="transition-colors hover:text-foreground">
               Contact
             </Link>
             <Link href="/services/ai-automation" className="transition-colors hover:text-foreground">
