@@ -70,7 +70,7 @@ export default function Labs() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <motion.a
-              href="https://calendly.com/rahultyagico"
+              href="https://cal.com/rahultyagi"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
